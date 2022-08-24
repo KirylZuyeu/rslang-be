@@ -156,6 +156,31 @@ paths:
             application/json:
               schema:
                   $ref: "#/components/schemas/Word"
+  /words/group:
+    parameters:
+      - name: group
+        in: query
+        required: false
+        description: group number
+        schema:
+          type: string
+    get:
+      tags:
+        - Words
+      security:
+        []
+      summary: Get a chunk of words
+      description: Gets a chunk of words
+      responses:
+        200:
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Word"
+
   /users:
     post:
       tags:
